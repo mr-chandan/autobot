@@ -5,7 +5,7 @@ import time
 
 title = []
 cl = Client()
-cl.login('memes.pst', '123321123zxc')
+cl.login('id', 'password')
 
 
 def getmemes():
