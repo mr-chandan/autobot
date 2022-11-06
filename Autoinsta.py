@@ -3,27 +3,27 @@ from instagrapi import Client
 from RedDownloader import RedDownloader
 import time
 
-title = []
-cl = Client()
-cl.login('id', 'password')
+inst = Client()
+inst.login('id', 'password')
 
 
 def getmemes():
-    post = RedDownloader.DownloadVideosBySubreddit(
-        'IndianDankMemes', 5, flair=None, SortBy="hot", quality=1080, output="downloaded", destination=None, cachefile='Downloaded.txt')
-    title = post.GetPostTitles()
-    return title
+    RedDownloader.DownloadVideosBySubreddit(
+        'IndianDankMemes', 6, flair=None, SortBy="hot", output="downloaded", quality=360, destination=None, cachefile='Downloaded.txt')
+
 
 while True:
     title = getmemes()
     for i in range(1, 7):
-        cl.video_upload(
-            "downloaded\downloaded"+str(i)+".mp4",
-            title[i] + "  credits to IndianDankMemes")
-        os.remove("downloaded\downloaded"+str(i)+".mp4")
-        os.remove("downloaded\downloaded"+str(i)+".mp4.jpg")
+        try:
+            inst.video_upload(
+                "/home/mtgodlon/downloaded/downloaded"+str(i)+".mp4",
+                "credits to IndianDankMemes")
+            os.remove("/home/mtgodlon/downloaded/downloaded"+str(i)+".mp4")
+            os.remove("/home/mtgodlon/downloaded/downloaded"+str(i)+".mp4.jpg")
+        except:
+            print("error")
         print("sleaping...............in_for")
-        time.sleep(1800)
-    title = []
+        time.sleep(4680)
     print("sleaping...............in_while")
-    time.sleep(21600)
+    time.sleep(3600)
